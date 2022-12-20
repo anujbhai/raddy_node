@@ -1,0 +1,23 @@
+body {
+  background-color: #EEEEEE;
+  font-family: sans-serif;
+}
+
+p {
+  font-size: 12px;
+  line-height: 22px;
+}
+
+.wrapper {
+  width: 800px;
+  margin: 0 auto;
+  background-color: #FFFFFF;
+  padding: 10px;
+}
+
+.wrapper > header,
+.wrapper > footer {
+  background-color: #F8F8FF;
+  padding: 20px;
+}
+
