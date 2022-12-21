@@ -17,11 +17,14 @@ app.set("layout", "./layout/full-width.ejs");
 app.set("view engine", "ejs");
 
 app.get("", (req, res) => {
-  res.render("index");
+  res.render("index", {title: "Home Page"});
 });
 
 app.get("/about", (req, res) => {
-  res.render("about");
+  res.render("about", {
+    title: "About",
+    layout: "./layout/sidebar"
+  });
 });
 
 app.listen(port, () => console.info(`Listening on port ${port}`));

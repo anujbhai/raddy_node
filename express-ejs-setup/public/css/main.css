@@ -21,3 +21,8 @@ p {
   padding: 20px;
 }
 
+.sidebar-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
