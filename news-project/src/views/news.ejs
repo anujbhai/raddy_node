@@ -9,5 +9,9 @@
 </head>
 <body>
   <h1>Node.js news</h1>  
+
+  <% articles.forEach(function(article, index) { %>
+    <%- article.title %>
+  <% }) %>
 </body>
 </html>
