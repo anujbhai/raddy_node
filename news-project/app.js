@@ -1,4 +1,5 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 const cors = require("cors");
 
 const app = express();
@@ -30,11 +31,12 @@ app.set("views", "./src/views");
 app.set("view engine", "ejs");
 
 // parsing middleware
-// app.use(express.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({extended: true}));
 
 // routes
 const newsRouter = require("./src/routes/news");
 
 app.use("/", newsRouter);
+app.use("/post", newsRouter);
 
 app.listen(port, () => console.log(`Listening on port ${port}`));

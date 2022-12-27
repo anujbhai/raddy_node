@@ -15,25 +15,21 @@
   </header>
 
   <div class="wrapper">
-    <div class="news">
-      <% if (articles !== null) { %>
-        <% articles.forEach(function(article, index) { %>
-          <a href="/post/<%- article.id %>" class="news_card">
-            <figure>
-              <img src="<%- article.image %>" alt="<%- article.text %>" />
-            </figure>
+    <div class="news-single">
+      <% if (article !== null) { %>
+        <!-- <figure> -->
+          <img src="<%- article.image %>" alt="<%- article.text %>" />
+        <!-- </figure> -->
 
-            <h2>
-              <%- article.text %>
-            </h2>
+        <h2>
+          <%- article.text %>
+        </h2>
 
-            <p>
-              <%- article.text %>
-            </p>
-          </a>
-        <% }) %>
+        <p>
+          <%- article.text %>
+        </p>
       <% } else { %>
-        <p>Posts not found..</p>
+        <p>Post not found..</p>
       <% } %>
     </div>
   </div>
