@@ -11,7 +11,7 @@ module.exports = {
     ecmaVersion: 'latest',
   },
   rules: {
-    'linebreak-styles': 0,
+    'linebreak-style': 0,
     'no-console': 0,
   },
 };
