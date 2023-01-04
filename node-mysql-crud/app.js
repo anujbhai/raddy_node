@@ -99,6 +99,35 @@ app.post('/beers', (req, res) => {
   });
 });
 
+// Update an item
+app.put('/beers', (req, res) => {
+  pool.getConnection((err, connection) => {
+    if (err) throw err;
+    console.log(`connection id: ${connection.threadId}`);
+
+    const {
+      id, name, tagline, description, image,
+    } = req.body;
+
+    // query(string, callback)
+    connection.query(
+      'UPDATE beers SET name = ?, tagline = ?, description = ?, image = ? WHERE id = ?',
+      [name, tagline, description, image, id],
+      (error) => {
+        connection.release(); // return the connecion to pool
+
+        if (!error) {
+          res.send(`Beer with the record id: ${id} has been updated.`);
+        } else {
+          console.log(error);
+        }
+      },
+    );
+
+    console.log(req.body);
+  });
+});
+
 // listen to port
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
