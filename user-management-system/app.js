@@ -4,6 +4,8 @@ const { engine } = require('express-handlebars');
 const body_parser = require('body-parser');
 const mysql = require('mysql');
 
+const routes = require('./server/routes/user');
+
 const app = express();
 const port = process.env.PORT || 5000;
 
@@ -13,11 +15,16 @@ app.use(body_parser.json());
 // MySQL
 const pool = mysql.createPool({
   connectionLimit: 10,
-  host: 'localhost',
-  user: process.env.MYSQL_USER,
-  password: process.env.MYSQL_PASSWORD,
-  database: 'raddy_node_crud',
-  port: 3306,
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  port: process.env.DB_PORT,
+});
+
+pool.getConnection((err, connection) => {
+  if (err) throw err;
+  console.log('Connected as id: ', connection.threadId);
 });
 
 // static
@@ -28,9 +35,7 @@ app.engine('hbs', engine({ defaultLayout: 'main', extname: '.hbs' }));
 app.set('view engine', 'hbs');
 
 // router
-app.get('', (req, res) => {
-  res.render('home');
-});
+app.use('/', routes);
 
 app.listen(port, () => {
   console.log(`App listening on port: ${port}`);
