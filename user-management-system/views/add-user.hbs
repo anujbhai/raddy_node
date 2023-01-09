@@ -1,0 +1,55 @@
+<div class="row mt-5">
+  <div class="col">
+    <h2>New user</h2>
+  </div>
+</div>
+
+<hr>
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Library</li>
+  </ol>
+</nav>
+
+<form class="row g-3 needs-validation" method="post" action="/adduser" novalidate>
+  <div class="col-6">
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" id="floatingInput" placeholder="First Name" name="first_name" />
+      <label for="floatingInput">First Name</label>
+    </div>
+  </div>
+
+  <div class="col-6">
+    <div class="form-floating">
+      <input type="text" class="form-control" id="floatingPassword" placeholder="Last Name" name="last_name" />
+      <label for="floatingPassword">Last Name</label>
+    </div>
+  </div>
+
+  <div class="col-6">
+    <div class="form-floating mb-3">
+      <input type="email" class="form-control" id="floatingInput" placeholder="Email" name="email" />
+      <label for="floatingInput">Email</label>
+    </div>
+  </div>
+
+  <div class="col-6">
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" id="floatingPassword" placeholder="Phone" name="phone" />
+      <label for="floatingPassword">Phone</label>
+    </div>
+  </div>
+  
+  <div class="col-12">
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" id="floatingComment" placeholder="Comment" name="comment" style="height: 200px;" />
+      <label for="floatingComment">Comment</label>
+    </div>
+  </div>
+
+  <div class="d-grid gap-2 col-3 mx-auto">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>
