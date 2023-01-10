@@ -54,7 +54,34 @@ exports.find = (req, res) => {
   });
 };
 
-// add user
+// view/navigate add user form
 exports.form = (req, res) => {
   res.render('add-user');
+};
+
+// add user
+exports.create = (req, res) => {
+  const {first_name, last_name, email, phone, comments, status} = req.body;
+
+  pool.getConnection((err, connection) => {
+    if (err) throw err;
+    console.log('Connected as id: ', connection.threadId);
+
+    connection.query(
+      'INSERT INTO users SET first_name = ?, last_name = ?, email = ?, phone = ?, comments = ?',
+      [first_name, last_name, email, phone, comments],
+      (error, rows) => {
+        // release when done with connection
+        connection.release();
+
+        if (!error) {
+          res.render('add-user', {rows, alert: 'User added successfully!'});
+        } else {
+          console.log(error);
+        }
+
+        console.log('Data from user table: \n', rows);
+      }
+    );
+  });
 };
