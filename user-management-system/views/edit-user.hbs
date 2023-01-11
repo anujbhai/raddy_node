@@ -1,6 +1,6 @@
 <div class="row mt-5">
   <div class="col">
-    <h2>New user</h2>
+    <h2>Update user</h2>
 
     {{#if alert}}
     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -16,10 +16,12 @@
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="/">Home</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Add form</li>
+    <li class="breadcrumb-item active" aria-current="page">Edit form</li>
   </ol>
 </nav>
 
 <form class="row g-3 needs-validation" method="post" action="/adduser" novalidate>
-  {{> user-form}}
+  {{#each rows}}
+    {{> user-form}}
+  {{/each}}
 </form>

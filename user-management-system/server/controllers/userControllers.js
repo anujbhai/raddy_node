@@ -85,3 +85,29 @@ exports.create = (req, res) => {
     );
   });
 };
+
+// edit user
+exports.edit = (req, res) => {
+  pool.getConnection((err, connection) => {
+    if (err) throw err;
+    console.log('Connected as id: ', connection.threadId);
+
+    connection.query(
+      'SELECT * FROM users WHERE id = ?',
+      [req.params.id],
+      (error, rows) => {
+        // release when done with connection
+        connection.release();
+
+        if (!error) {
+          res.render('edit-user', {rows, alert: 'User updated successfully!'});
+          // res.render('edit-user');
+        } else {
+          console.log(error);
+        }
+
+        console.log('Data from user table: \n', rows);
+      }
+    );
+  });
+};
