@@ -20,8 +20,8 @@
   </ol>
 </nav>
 
-<form class="row g-3 needs-validation" method="post" action="/adduser" novalidate>
-  {{#each rows}}
+{{#each rows}}
+<form class="row g-3 needs-validation" method="post" action="/edituser/{{this.id}}" novalidate>
     {{> user-form}}
-  {{/each}}
 </form>
+{{/each}}

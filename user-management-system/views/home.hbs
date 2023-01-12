@@ -8,6 +8,17 @@
   </div>
 </div>
 
+<div class="row">
+  <div class="col">
+    {{#if removedUser}}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      User was removed!
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {{/if}}
+  </div>
+</div>
+
 <hr>
 
 <div class="table-responsive">
@@ -32,9 +43,9 @@
         <td>{{this.phone}}</td>
         <td class="d-flex justify-content-end">
           <div>
-            <a href="/" type="button" class="btn btn-sm btn-light"><i class="bi bi-eye"></i></a>
+            <a href="/userdetails/{{this.id}}" type="button" class="btn btn-sm btn-light"><i class="bi bi-eye"></i></a>
             <a href="/edituser/{{this.id}}" type="button" class="btn btn-sm btn-light"><i class="bi bi-pencil"></i></a>
-            <a href="/" type="button" class="btn btn-sm btn-light"><i class="bi bi-trash"></i></a>
+            <a href="/{{this.id}}" type="button" class="btn btn-sm btn-light"><i class="bi bi-trash"></i></a>
           </div>
         </td>
       </tr>
