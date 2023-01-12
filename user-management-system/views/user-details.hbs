@@ -1,0 +1,67 @@
+<div class="row mt-5">
+  {{#each rows}}
+  <div class="col">
+    <h2>{{this.first_name}} {{this.last_name}}</h2>
+  </div>
+  {{/each}}
+</div>
+
+<hr>
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">User details</li>
+  </ol>
+</nav>
+
+<div class="view-user p-5">
+  {{#each rows}}
+  <div class="row mb-5">
+    <div class="col text-center">
+      <h3>{{this.first_name}} {{this.last_name}}</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <table class="table">
+        <thead>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Phone</th>
+          <tbody>
+            <th>{{this.first_name}}</th>
+            <th>{{this.last_name}}</th>
+            <th>{{this.email}}</th>
+            <th>{{this.phone}}</th>
+          </tbody>
+        </thead>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <p><strong>Comments</strong></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+        {{#if this.comments}}
+        <div class="card">
+          <div class="card-body">
+            <blockquote class="blockquote">
+              <p>{{this.comments}}</p>
+            </blockquote>
+          </div>
+        </div>
+        {{else}}
+        <p>No comments yet...</p>
+        {{/if}}
+    </div>
+  </div>
+  {{/each}}
+</div>
